@@ -1,6 +1,17 @@
 def heapsort(arr):
- pass 
- 
+  # create an empty heap to hold the sorted max heap
+
+  # loop over the unsorted list and insert each element in to the sorted max heap
+
+  # created an empty list to hold the sorted list data
+
+  # while the sorted max heaps storage has values append the values to the sorted list
+  # by way of the heaps delete method
+
+  # reverse the sorted list to ascending order to make it min sorted
+
+  # return the sorted list to the caller
+  pass 
 
 class Heap:
   def __init__(self):
