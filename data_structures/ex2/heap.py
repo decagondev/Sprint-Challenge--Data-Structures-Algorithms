@@ -1,18 +1,24 @@
-def heapsort(arr):
-  # create an empty heap to hold the sorted max heap
+def heapsort(unsorted_list): # changing the argument to unsorted_list to match more with python vanacular
+    # create an empty heap to hold the sorted max heap
+    sorted_max_heap = Heap()
 
-  # loop over the unsorted list and insert each element in to the sorted max heap
+    # loop over the unsorted list and insert each element in to the sorted max heap
+    for elem in unsorted_list:
+        sorted_max_heap.insert(elem)
 
-  # created an empty list to hold the sorted list data
+    # created an empty list to hold the sorted list data
+    sorted_list = []
+    
+    # while the sorted max heaps storage has values append the values to the sorted list
+    # by way of the heaps delete method
+    while len(sorted_max_heap.storage) > 0:
+        sorted_list.append(sorted_max_heap.delete())
+    
+    # reverse the sorted_list to ascending order to make it min sorted
+    sorted_list.reverse()
 
-  # while the sorted max heaps storage has values append the values to the sorted list
-  # by way of the heaps delete method
-
-  # reverse the sorted list to ascending order to make it min sorted
-
-  # return the sorted list to the caller
-  pass 
-
+    # return the sorted list to the caller
+    return sorted_list
 class Heap:
   def __init__(self):
     self.storage = []
