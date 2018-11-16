@@ -5,7 +5,13 @@ class BinarySearchTree:
     self.right = None
 
   def depth_first_for_each(self, cb):
-    pass    
+
+    # invoke callback with the value of this node
+
+    # if the left has a valuse recursively invoke the depth first for each on left
+
+    # if the right has a value recursively invoke the depth first for each on right
+    pass
 
   # some refs for the O notation https://medium.com/karuna-sehgal/a-simplified-explanation-of-the-big-o-notation-82523585e835
   def breadth_first_for_each(self, cb):
