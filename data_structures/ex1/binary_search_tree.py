@@ -7,36 +7,56 @@ class BinarySearchTree:
   def depth_first_for_each(self, cb):
     pass    
 
-  # implementation TODO: add pseudocode for this method
   def breadth_first_for_each(self, cb):
     # perform the call back on the root value
-
+    cb(self.value)
+        
     # check the level of the node [ a nested function : lets get recursive ]
-
+    def check_level_of_node(node):
       # try to set left to the nodes left property
-
-      # if it failes return an error or raise an exception
-      # if there was no exception on the try do a semi redundant call to make sure it is set
-
+      try:
+        left_node = node.left 
+      except:
+        # if it failes return an error or raise an exception
+        return "ERROR: No Left Node" # TODO: maybe throw an exception of some sort
+      else: 
+        # if there was no exception on the try do a semi redundant call to make sure it is set
+        left_node = node.left 
+      
       # try to set right to the nodes right property
+      try:
+        right_node = node.right
+      except:
+        # if it failes return an error or raise an exception
+        return "ERROR: No Right Node" # TODO: maybe throw an exception of some sort
+      else:
+        # if there was no exception on the try do a semi redundant call to make sure it is set
+        right_node = node.right 
 
-      # if it failes return an error or raise an exception
-      # if there was no exception on the try do a semi redundant call to make sure it is set
-
-      # --- end of the trys ---
-
-      # set a counter variable to 0
+      # set a counter variable to 0   
+      counter = 0
 
       # if left holds a value the invoke the call back on the left value and increment the counter by 1
+      if left_node is not None: 
+        cb(left_node.value)
+        counter += 1 
 
       # if right holds a value the invoke the call back on the right value and increment the counter by 1
+      if right_node is not None:
+        cb(right_node.value)
+        counter += 1 
 
       # if the counter hits 2 then do a recursive call to check the level of the node to the left and one to the right
+      if counter == 2: 
+        check_level_of_node(left_node)
+        check_level_of_node(right_node)
 
-      # then deal with a fallout case where left or right are none and just return to the caller
-
-    # do the seed call to the nested function
-    pass
+      # then deal with a fallout case where left or right are none and just return to the caller    
+      if left_node is None or  right_node is None:
+        return
+          
+    # do the seed call to the nested function  
+    check_level_of_node(self)
 
   def insert(self, value):
     new_tree = BinarySearchTree(value)
