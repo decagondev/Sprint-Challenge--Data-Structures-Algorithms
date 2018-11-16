@@ -1,24 +1,24 @@
 def heapsort(unsorted_list): # changing the argument to unsorted_list to match more with python vanacular
     # create an empty heap to hold the sorted max heap
-    sorted_max_heap = Heap()
+    sorted_max_heap = Heap() # this should be  a time complexity of O(1)
 
     # loop over the unsorted list and insert each element in to the sorted max heap
     for elem in unsorted_list:
-        sorted_max_heap.insert(elem)
+        sorted_max_heap.insert(elem) # here we would have a time complexity of O(n)
 
     # created an empty list to hold the sorted list data
-    sorted_list = []
+    sorted_list = [] # complexity of O(1)
     
     # while the sorted max heaps storage has values append the values to the sorted list
     # by way of the heaps delete method
     while len(sorted_max_heap.storage) > 0:
-        sorted_list.append(sorted_max_heap.delete())
+        sorted_list.append(sorted_max_heap.delete()) # this has 2 operations so a O(2n) which simplifies to a O(n) complexity
     
     # reverse the sorted_list to ascending order to make it min sorted
-    sorted_list.reverse()
+    sorted_list.reverse() # i believe that this has a O(n) complexity as the builtin
 
     # return the sorted list to the caller
-    return sorted_list
+    return sorted_list # and 1 return value so we have an overall space of about O(3n) with the space of 3n + a little ovrhead but simplification should say a 3n space 
 class Heap:
   def __init__(self):
     self.storage = []
